@@ -1,0 +1,29 @@
+---
+import type { AboutContent } from '../lib/types/content.type';
+
+type Props = AboutContent;
+
+const { title, quote, body, emailLabel, email } = Astro.props;
+---
+
+<section id="tentang-saya" class="section bg-light">
+	<div class="container">
+		<div class="about-grid">
+			<div class="about-visual fade-in-up">
+				<img
+					src="/assets/images/professional-profile.png"
+					alt="Fadhil - Senior Software Engineer Portrait"
+					class="about-img"
+				/>
+			</div>
+			<div class="about-content fade-in-up">
+				<h2 class="section-title">{title}</h2>
+				<p class="about-text">{quote}</p>
+				<p>{body}</p>
+				<div class="about-contact">
+					<strong>{emailLabel}</strong> <a href={`mailto:${email}`}>{email}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,17 @@
+---
+import type { HeroContent } from '../lib/types/content.type';
+
+type Props = HeroContent;
+
+const { title, lead, ctaLabel, href } = Astro.props;
+---
+
+<section id="hero" class="hero-section">
+	<div class="container fade-in-up">
+		<h1>{title}</h1>
+		<p class="lead">{lead}</p>
+		<div class="hero-cta">
+			<a href={href} class="btn btn-primary btn-large">{ctaLabel}</a>
+		</div>
+	</div>
+</section>

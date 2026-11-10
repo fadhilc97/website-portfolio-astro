@@ -1,0 +1,505 @@
+/* Design Tokens */
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  /* Slate 900 */
+  --primary: #2563eb;
+  /* Blue 600 */
+  --primary-hover: #1d4ed8;
+  --muted: #64748b;
+  /* Slate 500 */
+  --border: #e2e8f0;
+  /* Slate 200 */
+  --radius: 0.5rem;
+  --container-max-width: 1200px;
+  --header-height: 80px;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.bg-light {
+  background-color: #f8fafc;
+}
+
+/* Typography Helpers */
+.section-header {
+  margin-bottom: 3rem;
+  max-width: 700px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  font-size: 1.125rem;
+}
+
+/* Button System */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+}
+
+.btn-large {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--foreground);
+}
+
+.btn-outline:hover {
+  background-color: var(--foreground);
+  color: white;
+  border-color: var(--foreground);
+}
+
+/* Header & Navigation */
+#main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+  transition: transform 0.4s ease;
+}
+
+#main-header.nav-hidden {
+  transform: translateY(-100%);
+}
+
+#main-header nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo a {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-toggle .bar {
+  width: 24px;
+  height: 2px;
+  background-color: var(--foreground);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 10rem 0 6rem;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 4rem;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  letter-spacing: -0.04em;
+}
+
+.hero-section .lead {
+  font-size: 1.25rem;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+/* Bento Grid System */
+.bento-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.bento-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.bento-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.bento-card h3 {
+  margin-bottom: 1rem;
+}
+
+.bento-card p {
+  color: var(--muted);
+}
+
+/* Services Grid Specifics */
+.services-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Portfolio Grid Specifics */
+.portfolio-grid {
+  gap: 3rem;
+}
+
+.portfolio-main {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 4rem;
+}
+
+.portfolio-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: #ebf2ff;
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.benefit-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.benefit-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.portfolio-visual {
+  background: #f1f5f9;
+  border-radius: var(--radius);
+  aspect-ratio: 16/10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.visual-placeholder {
+  color: var(--muted);
+  font-weight: 500;
+  text-align: center;
+  padding: 2rem;
+}
+
+.portfolio-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-main:hover .portfolio-img {
+  transform: scale(1.04);
+}
+
+/* Alternating layout for desktop view */
+@media (min-width: 1025px) {
+  .portfolio-main:nth-child(even) .portfolio-content {
+    order: 2;
+  }
+
+  .portfolio-main:nth-child(even) .portfolio-visual {
+    order: 1;
+  }
+}
+
+/* Workflow Section */
+.workflow-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.step-number {
+  flex: 0 0 4rem;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--border);
+  line-height: 1;
+}
+
+.step-body h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.step-body p {
+  color: var(--muted);
+}
+
+/* About Section */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-img {
+  border-radius: var(--radius);
+  box-shadow: 20px 20px 60px #d1d9e6, -20px -20px 60px #ffffff;
+}
+
+.about-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.about-contact {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.about-contact a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Footer */
+.footer {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation Delays */
+.fade-in-up[style*="--delay"] {
+  transition-delay: var(--delay);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .hero-section h1 {
+    font-size: 3rem;
+  }
+
+  .portfolio-main {
+    grid-template-columns: 1fr;
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .services-grid,
+  .workflow-steps,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .hero-section {
+    padding: 8rem 0 4rem;
+  }
+}

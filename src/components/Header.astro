@@ -1,0 +1,23 @@
+---
+import Logo from './Logo.astro';
+import MenuItems from './MenuItems.astro';
+import ContactButton from './ContactButton.astro';
+import type { HeaderContent } from '../lib/types/content.type';
+
+type Props = HeaderContent;
+
+const { brand, menu, contact } = Astro.props;
+---
+
+<header id="main-header">
+	<nav class="container">
+		<Logo brand={brand} />
+		<MenuItems items={menu} />
+		<ContactButton label={contact.label} href={contact.href} />
+		<button class="mobile-toggle" aria-label="Toggle Menu">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</button>
+	</nav>
+</header>

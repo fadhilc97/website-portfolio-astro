@@ -1,0 +1,25 @@
+---
+import CoreServiceCardItem from './CoreServiceCardItem.astro';
+import type { ServicesContent } from '../lib/types/content.type';
+
+type Props = ServicesContent;
+
+const { title, subtitle, items } = Astro.props;
+---
+
+<section id="layanan" class="section">
+	<div class="container">
+		<div class="section-header fade-in-up">
+			<h2 class="section-title">{title}</h2>
+			<p class="section-subtitle">{subtitle}</p>
+		</div>
+
+		<div class="bento-grid services-grid">
+			{
+				items.map((item, index) => (
+					<CoreServiceCardItem {...item} delay={`${(index + 1) / 10}s`} />
+				))
+			}
+		</div>
+	</div>
+</section>

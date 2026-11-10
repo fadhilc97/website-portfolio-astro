@@ -1,0 +1,20 @@
+---
+import PortfolioCardItem from './PortfolioCardItem.astro';
+import type { PortfolioContent } from '../lib/types/content.type';
+
+type Props = PortfolioContent;
+
+const { title, items } = Astro.props;
+---
+
+<section id="portofolio" class="section bg-light">
+	<div class="container">
+		<div class="section-header fade-in-up">
+			<h2 class="section-title">{title}</h2>
+		</div>
+
+		<div class="bento-grid portfolio-grid">
+			{items.map((item) => <PortfolioCardItem {...item} />)}
+		</div>
+	</div>
+</section>

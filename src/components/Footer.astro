@@ -1,0 +1,13 @@
+---
+import type { FooterContent } from '../lib/types/content.type';
+
+type Props = FooterContent;
+
+const { copyright } = Astro.props;
+---
+
+<footer class="footer">
+	<div class="container">
+		<p>{copyright}</p>
+	</div>
+</footer>

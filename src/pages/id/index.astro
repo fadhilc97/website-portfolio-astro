@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import CoreServices from '../../components/CoreServices.astro';
+import Portfolio from '../../components/Portfolio.astro';
+import Workflow from '../../components/Workflow.astro';
+import About from '../../components/About.astro';
+import { content } from '../../data/content';
+
+const page = content.id;
+---
+
+<Layout content={page}>
+	<HeroSection {...page.hero} />
+	<CoreServices {...page.services} />
+	<Portfolio {...page.portfolio} />
+	<Workflow {...page.workflow} />
+	<About {...page.about} />
+</Layout>

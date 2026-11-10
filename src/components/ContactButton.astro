@@ -1,0 +1,12 @@
+---
+type Props = {
+	label: string;
+	href: string;
+};
+
+const { label, href } = Astro.props;
+---
+
+<div class="nav-cta">
+	<a href={href} class="btn btn-primary">{label}</a>
+</div>
