@@ -1,17 +1,15 @@
 ---
 import type { WorkflowStep } from '../lib/types/content.type';
 
-type Props = WorkflowStep & {
-	delay?: string;
-};
+type Props = WorkflowStep;
 
-const { number, title, description, delay } = Astro.props;
+const { number, title, description } = Astro.props;
 ---
 
-<div class="step-item fade-in-up" style={delay ? `--delay: ${delay}` : undefined}>
+<div class="step-item">
 	<div class="step-number">{number}</div>
 	<div class="step-body">
-		<h4>{title}</h4>
+		<h3>{title}</h3>
 		<p>{description}</p>
 	</div>
 </div>

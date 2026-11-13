@@ -33,22 +33,22 @@ export const content: Record<Locale, SiteContent> = {
       subtitle: 'Modular solutions for complex business operational needs.',
       items: [
         {
-          icon: '⚙️',
+          icon: 'system',
           title: 'Custom Internal Systems',
           description: "Bespoke applications tailored to your company's internal needs.",
         },
         {
-          icon: '⚡',
+          icon: 'automation',
           title: 'Workflow Automation',
           description: 'Eliminate manual bottlenecks with automated workflows.',
         },
         {
-          icon: '📊',
+          icon: 'dashboard',
           title: 'Digitalized Operations Management',
           description: 'Monitor all business processes in a single integrated dashboard.',
         },
         {
-          icon: '🔗',
+          icon: 'integration',
           title: 'System Integrations',
           description: 'Connecting various third-party platforms into a unified ecosystem.',
         },
@@ -58,7 +58,6 @@ export const content: Record<Locale, SiteContent> = {
       title: 'Featured Portfolio',
       items: [
         {
-          badge: 'Case Study',
           title:
             'Assessment System Digitalization: Project Readiness Index for Industrial Transformation',
           description:
@@ -72,9 +71,10 @@ export const content: Record<Locale, SiteContent> = {
           ctaLabel: 'View Live Demo',
           image: '/assets/images/project-readiness-index.png',
           imageAlt: 'Screenshot Project Readiness Index',
+          imageWidth: 2829,
+          imageHeight: 1472,
         },
         {
-          badge: 'Case Study',
           title:
             'Residential Management Digitalization: Custom System for Rental Property Transactions',
           description:
@@ -88,8 +88,8 @@ export const content: Record<Locale, SiteContent> = {
           ctaLabel: 'View Live Demo',
           image: '/assets/images/project-residential-app.png',
           imageAlt: 'Screenshot Project Residential App',
-          delay: '0.2s',
-          placeholder: true,
+          imageWidth: 1906,
+          imageHeight: 932,
         },
       ],
     },
@@ -164,22 +164,22 @@ export const content: Record<Locale, SiteContent> = {
       subtitle: 'Solusi modular untuk kebutuhan operasional bisnis yang kompleks.',
       items: [
         {
-          icon: '⚙️',
+          icon: 'system',
           title: 'Sistem Internal Kustom',
           description: 'Aplikasi khusus untuk kebutuhan internal perusahaan Anda.',
         },
         {
-          icon: '⚡',
+          icon: 'automation',
           title: 'Otomatisasi Alur Kerja',
           description: 'Menghilangkan hambatan manual dengan sistem yang bekerja otomatis.',
         },
         {
-          icon: '📊',
+          icon: 'dashboard',
           title: 'Digitalisasi Manajemen Operasional',
           description: 'Pantau semua proses bisnis dalam satu dashboard terintegrasi.',
         },
         {
-          icon: '🔗',
+          icon: 'integration',
           title: 'Sistem Integrasi',
           description: 'Menghubungkan berbagai platform pihak ketiga ke dalam satu ekosistem.',
         },
@@ -189,7 +189,6 @@ export const content: Record<Locale, SiteContent> = {
       title: 'Portofolio Pilihan',
       items: [
         {
-          badge: 'Studi Kasus',
           title:
             'Digitalisasi Sistem Assessment: Project Readiness Index untuk Transformasi Industri',
           description:
@@ -203,9 +202,10 @@ export const content: Record<Locale, SiteContent> = {
           ctaLabel: 'Lihat Live Demo',
           image: '/assets/images/project-readiness-index.png',
           imageAlt: 'Screenshot Project Readiness Index',
+          imageWidth: 2829,
+          imageHeight: 1472,
         },
         {
-          badge: 'Studi Kasus',
           title:
             'Digitalisasi Manajemen Hunian: Sistem Kustom untuk Transaksi Properti Sewa',
           description:
@@ -219,8 +219,8 @@ export const content: Record<Locale, SiteContent> = {
           ctaLabel: 'Lihat Live Demo',
           image: '/assets/images/project-residential-app.png',
           imageAlt: 'Screenshot Project Residential App',
-          delay: '0.2s',
-          placeholder: true,
+          imageWidth: 1906,
+          imageHeight: 932,
         },
       ],
     },
@@ -257,7 +257,7 @@ export const content: Record<Locale, SiteContent> = {
       email: 'fadhilc97@gmail.com',
     },
     footer: {
-      copyright: '© 2026 Fadhil. All rights reserved.',
+      copyright: '© 2026 Fadhil. Seluruh hak cipta dilindungi.',
     },
     whatsapp: {
       href: WHATSAPP_URL,

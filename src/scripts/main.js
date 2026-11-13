@@ -1,92 +1,95 @@
 /**
  * main.js
  * Senior Engineer Portfolio Logic
- * - Smart Sticky Navbar
- * - Intersection Observer for Fade-in Animations
  */
 
 const init = () => {
-  // --- Smart Sticky Navbar ---
   const header = document.getElementById('main-header');
+  const toggle = document.querySelector('.mobile-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  // --- Sticky navbar ---
   let lastScroll = 0;
 
-  if (header) {
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
+  window.addEventListener(
+    'scroll',
+    () => {
+      const currentScroll = window.scrollY;
 
-      // Add class for styling when scrolled
-      if (currentScroll > 50) {
-        header.classList.add('nav-scrolled');
-      } else {
-        header.classList.remove('nav-scrolled');
-      }
+      if (header) {
+        header.classList.toggle('nav-scrolled', currentScroll > 24);
 
-      // Smart hide/show logic
-      if (currentScroll > lastScroll && currentScroll > 150) {
-        // Scrolling down
-        header.classList.add('nav-hidden');
-      } else {
-        // Scrolling up
-        header.classList.remove('nav-hidden');
+        const menuOpen = toggle?.getAttribute('aria-expanded') === 'true';
+
+        if (!menuOpen && currentScroll > lastScroll && currentScroll > 240) {
+          header.classList.add('nav-hidden');
+        } else {
+          header.classList.remove('nav-hidden');
+        }
       }
 
       lastScroll = currentScroll;
-    });
-  }
+    },
+    { passive: true }
+  );
 
-  // --- Intersection Observer (Fade-in Animations) ---
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px',
+  // --- Mobile menu ---
+  const setMenu = (open) => {
+    if (!toggle || !mobileMenu) return;
+
+    toggle.setAttribute('aria-expanded', String(open));
+    mobileMenu.hidden = !open;
+    document.body.classList.toggle('menu-open', open);
+
+    if (open) {
+      header?.classList.remove('nav-hidden');
+      mobileMenu.querySelector('a')?.focus();
+    }
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        // Once animated, no need to observe anymore
-        observer.unobserve(entry.target);
+  if (toggle && mobileMenu) {
+    toggle.addEventListener('click', () => {
+      setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setMenu(false);
+        toggle.focus();
       }
     });
-  }, observerOptions);
 
-  const animatedElements = document.querySelectorAll('.fade-in-up');
-  animatedElements.forEach((el) => observer.observe(el));
-
-  // --- Mobile Menu Toggle ---
-  const mobileToggle = document.querySelector('.mobile-toggle');
-
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-      // In a real app, you'd show a mobile overlay.
-      // For this single page, we can toggle a class on body or nav.
-      alert(
-        'Mobile menu functionality would open an overlay here. Layout is currently mobile-first optimized.'
-      );
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && toggle.getAttribute('aria-expanded') === 'true') {
+        setMenu(false);
+      }
     });
   }
 
-  // --- Smooth Scroll Adjustments ---
-  // Offsetting scroll to account for fixed header
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href === '#') return;
+  // --- Reveal on scroll ---
+  const revealElements = document.querySelectorAll('.reveal');
 
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        const headerOffset = 80;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
+  if ('IntersectionObserver' in window && revealElements.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
         });
-      }
-    });
-  });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    revealElements.forEach((element) => observer.observe(element));
+  } else {
+    revealElements.forEach((element) => element.classList.add('is-visible'));
+  }
 };
 
 if (document.readyState === 'loading') {

@@ -9,17 +9,13 @@ const { title, subtitle, items } = Astro.props;
 
 <section id="layanan" class="section">
 	<div class="container">
-		<div class="section-header fade-in-up">
+		<div class="section-header reveal">
 			<h2 class="section-title">{title}</h2>
 			<p class="section-subtitle">{subtitle}</p>
 		</div>
 
-		<div class="bento-grid services-grid">
-			{
-				items.map((item, index) => (
-					<CoreServiceCardItem {...item} delay={`${(index + 1) / 10}s`} />
-				))
-			}
+		<div class="services-grid">
+			{items.map((item) => <CoreServiceCardItem {...item} />)}
 		</div>
 	</div>
 </section>

@@ -6,14 +6,30 @@ type Props = {
 };
 
 const { items } = Astro.props;
+
+const localeOf = (href: string) => {
+	if (href === '/id/') return { lang: 'id', label: 'Switch to Indonesian' };
+	if (href === '/') return { lang: 'en', label: 'Switch to English' };
+	return null;
+};
 ---
 
 <ul class="nav-links">
 	{
-		items.map((item) => (
-			<li>
-				<a href={item.href}>{item.label}</a>
-			</li>
-		))
+		items.map((item) => {
+			const locale = localeOf(item.href);
+			return (
+				<li>
+					<a
+						href={item.href}
+						class={locale ? 'lang-switch' : undefined}
+						hreflang={locale?.lang}
+						aria-label={locale?.label}
+					>
+						{item.label}
+					</a>
+				</li>
+			);
+		})
 	}
 </ul>

@@ -1,5 +1,7 @@
 export type Locale = 'en' | 'id';
 
+export type ServiceIconName = 'system' | 'automation' | 'dashboard' | 'integration';
+
 export interface MenuItem {
 	label: string;
 	href: string;
@@ -22,7 +24,7 @@ export interface HeroContent {
 }
 
 export interface CoreServiceItem {
-	icon: string;
+	icon: ServiceIconName;
 	title: string;
 	description: string;
 }
@@ -34,7 +36,6 @@ export interface ServicesContent {
 }
 
 export interface PortfolioItem {
-	badge: string;
 	title: string;
 	description: string;
 	benefits: string[];
@@ -42,8 +43,8 @@ export interface PortfolioItem {
 	ctaLabel: string;
 	image: string;
 	imageAlt: string;
-	delay?: string;
-	placeholder?: boolean;
+	imageWidth: number;
+	imageHeight: number;
 }
 
 export interface PortfolioContent {

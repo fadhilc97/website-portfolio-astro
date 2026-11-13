@@ -3,40 +3,41 @@ import type { PortfolioItem } from '../lib/types/content.type';
 
 type Props = PortfolioItem;
 
-const {
-	badge,
-	title,
-	description,
-	benefits,
-	href,
-	ctaLabel,
-	image,
-	imageAlt,
-	delay,
-	placeholder,
-} = Astro.props;
-
+const { title, description, benefits, href, ctaLabel, image, imageAlt, imageWidth, imageHeight } =
+	Astro.props;
 ---
 
-<div class="bento-card portfolio-main fade-in-up" style={delay ? `--delay: ${delay}` : undefined}>
-	<div class="portfolio-content">
-		<span class="badge">{badge}</span>
+<article class="case-study">
+	<div class="case-study-media">
+		<img
+			src={image}
+			alt={imageAlt}
+			width={imageWidth}
+			height={imageHeight}
+			loading="lazy"
+			decoding="async"
+		/>
+	</div>
+	<div class="case-study-body">
 		<h3>{title}</h3>
 		<p>{description}</p>
 		<ul class="benefit-list">
-			{benefits.map((benefit) => <li>{benefit}</li>)}
+			{
+				benefits.map((benefit) => (
+					<li>
+						<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M2.5 8.5 6 12l7.5-8" />
+						</svg>
+						<span>{benefit}</span>
+					</li>
+				))
+			}
 		</ul>
-		<a href={href} target="_blank" class="btn btn-outline">{ctaLabel}</a>
+		<a href={href} target="_blank" rel="noopener noreferrer" class="link-arrow">
+			{ctaLabel}
+			<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path d="M4 12 12 4M5.5 4H12v6.5" />
+			</svg>
+		</a>
 	</div>
-	<div class="portfolio-visual">
-		{
-			placeholder ? (
-				<div class="visual-placeholder">
-					<img src={image} alt={imageAlt} class="portfolio-img" />
-				</div>
-			) : (
-				<img src={image} alt={imageAlt} class="portfolio-img" />
-			)
-		}
-	</div>
-</div>
+</article>
