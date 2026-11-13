@@ -20,4 +20,4 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT }}
           script: |
-            /home/scripts/fadhildev.com/deploy.sh
+            /home/fadhildev/scripts/fadhildev.com/deploy.sh
