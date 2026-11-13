@@ -9,19 +9,24 @@ const { title, quote, body, emailLabel, email } = Astro.props;
 <section id="tentang-saya" class="section bg-light">
 	<div class="container">
 		<div class="about-grid">
-			<div class="about-visual fade-in-up">
+			<div class="about-visual reveal">
 				<img
 					src="/assets/images/professional-profile.png"
 					alt="Fadhil - Senior Software Engineer Portrait"
+					width="500"
+					height="500"
+					loading="lazy"
+					decoding="async"
 					class="about-img"
 				/>
 			</div>
-			<div class="about-content fade-in-up">
+			<div class="about-content reveal">
 				<h2 class="section-title">{title}</h2>
-				<p class="about-text">{quote}</p>
-				<p>{body}</p>
+				<p class="about-quote">{quote}</p>
+				<p class="about-bio">{body}</p>
 				<div class="about-contact">
-					<strong>{emailLabel}</strong> <a href={`mailto:${email}`}>{email}</a>
+					<strong>{emailLabel}</strong>
+					<a href={`mailto:${email}`}>{email}</a>
 				</div>
 			</div>
 		</div>

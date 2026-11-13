@@ -1,15 +1,16 @@
 ---
+import ServiceIcon from './ServiceIcon.astro';
 import type { CoreServiceItem } from '../lib/types/content.type';
 
-type Props = CoreServiceItem & {
-	delay?: string;
-};
+type Props = CoreServiceItem;
 
-const { icon, title, description, delay } = Astro.props;
+const { icon, title, description } = Astro.props;
 ---
 
-<div class="bento-card fade-in-up" style={delay ? `--delay: ${delay}` : undefined}>
-	<div class="card-icon">{icon}</div>
-	<h3>{title}</h3>
-	<p>{description}</p>
+<div class="service-item">
+	<span class="service-icon"><ServiceIcon name={icon} /></span>
+	<div class="service-copy">
+		<h3>{title}</h3>
+		<p>{description}</p>
+	</div>
 </div>

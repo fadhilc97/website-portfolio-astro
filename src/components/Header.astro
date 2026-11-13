@@ -7,17 +7,53 @@ import type { HeaderContent } from '../lib/types/content.type';
 type Props = HeaderContent;
 
 const { brand, menu, contact } = Astro.props;
+
+const localeOf = (href: string) => {
+	if (href === '/id/') return { lang: 'id', label: 'Switch to Indonesian' };
+	if (href === '/') return { lang: 'en', label: 'Switch to English' };
+	return null;
+};
 ---
 
 <header id="main-header">
-	<nav class="container">
+	<nav class="container" aria-label="Primary">
 		<Logo brand={brand} />
 		<MenuItems items={menu} />
 		<ContactButton label={contact.label} href={contact.href} />
-		<button class="mobile-toggle" aria-label="Toggle Menu">
-			<span class="bar"></span>
+		<button
+			class="mobile-toggle"
+			type="button"
+			aria-label="Menu"
+			aria-expanded="false"
+			aria-controls="mobile-menu"
+		>
 			<span class="bar"></span>
 			<span class="bar"></span>
 		</button>
 	</nav>
 </header>
+
+<nav id="mobile-menu" class="mobile-menu" aria-label="Mobile" hidden>
+	<ul class="mobile-menu-links">
+		{
+			menu.map((item) => {
+				const locale = localeOf(item.href);
+				return (
+					<li class={locale ? 'mobile-locale' : undefined}>
+						<a
+							href={item.href}
+							class={locale ? 'lang-switch' : undefined}
+							hreflang={locale?.lang}
+							aria-label={locale?.label}
+						>
+							{item.label}
+						</a>
+					</li>
+				);
+			})
+		}
+	</ul>
+	<a href={contact.href} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+		{contact.label}
+	</a>
+</nav>
