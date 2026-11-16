@@ -74,23 +74,23 @@ export const content: Record<Locale, SiteContent> = {
           imageWidth: 2829,
           imageHeight: 1472,
         },
-        {
-          title:
-            'Residential Management Digitalization: Custom System for Rental Property Transactions',
-          description:
-            'This custom system helps automate records, making business operations more organized and transparent.',
-          benefits: [
-            'Real-time tracking of assets and room availability.',
-            'Centrally manage tenant information.',
-            'Automate payment history records to prevent calculation errors.',
-          ],
-          href: 'https://kost-app.fadhildev.com',
-          ctaLabel: 'View Live Demo',
-          image: '/assets/images/project-residential-app.png',
-          imageAlt: 'Screenshot Project Residential App',
-          imageWidth: 1906,
-          imageHeight: 932,
-        },
+        // {
+        //   title:
+        //     'Residential Management Digitalization: Custom System for Rental Property Transactions',
+        //   description:
+        //     'This custom system helps automate records, making business operations more organized and transparent.',
+        //   benefits: [
+        //     'Real-time tracking of assets and room availability.',
+        //     'Centrally manage tenant information.',
+        //     'Automate payment history records to prevent calculation errors.',
+        //   ],
+        //   href: 'https://kost-app.fadhildev.com',
+        //   ctaLabel: 'View Live Demo',
+        //   image: '/assets/images/project-residential-app.png',
+        //   imageAlt: 'Screenshot Project Residential App',
+        //   imageWidth: 1906,
+        //   imageHeight: 932,
+        // },
       ],
     },
     workflow: {
@@ -205,23 +205,23 @@ export const content: Record<Locale, SiteContent> = {
           imageWidth: 2829,
           imageHeight: 1472,
         },
-        {
-          title:
-            'Digitalisasi Manajemen Hunian: Sistem Kustom untuk Transaksi Properti Sewa',
-          description:
-            'Sistem kustom ini membantu mengotomatisasi pendataan agar operasional bisnis menjadi lebih rapi dan transparan.',
-          benefits: [
-            'Mencatat aset dan ketersediaan kamar secara real-time.',
-            'Mendata informasi penghuni secara terpusat.',
-            'Otomatisasi pencatatan riwayat pembayaran untuk menghindari salah hitung.',
-          ],
-          href: 'https://kost-app.fadhildev.com',
-          ctaLabel: 'Lihat Live Demo',
-          image: '/assets/images/project-residential-app.png',
-          imageAlt: 'Screenshot Project Residential App',
-          imageWidth: 1906,
-          imageHeight: 932,
-        },
+        // {
+        //   title:
+        //     'Digitalisasi Manajemen Hunian: Sistem Kustom untuk Transaksi Properti Sewa',
+        //   description:
+        //     'Sistem kustom ini membantu mengotomatisasi pendataan agar operasional bisnis menjadi lebih rapi dan transparan.',
+        //   benefits: [
+        //     'Mencatat aset dan ketersediaan kamar secara real-time.',
+        //     'Mendata informasi penghuni secara terpusat.',
+        //     'Otomatisasi pencatatan riwayat pembayaran untuk menghindari salah hitung.',
+        //   ],
+        //   href: 'https://kost-app.fadhildev.com',
+        //   ctaLabel: 'Lihat Live Demo',
+        //   image: '/assets/images/project-residential-app.png',
+        //   imageAlt: 'Screenshot Project Residential App',
+        //   imageWidth: 1906,
+        //   imageHeight: 932,
+        // },
       ],
     },
     workflow: {
